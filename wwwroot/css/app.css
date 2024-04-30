@@ -1,3 +1,112 @@
+:root {
+    --vt-c-white: #e7f1f1; /* a softer white */
+    --vt-c-white-soft: #c2d6d6; /* soft blue */
+    --vt-c-white-mute: #9fb7b7; /* muted blue */
+    --vt-c-cream: #f5f5dc; /* Cream color defined */
+    --vt-c-medium-violet: #8a2be2; /* medium violet */
+    --vt-c-black: #1d1e2c; /* deep blue */
+    --vt-c-black-soft: #2a2b3d; /* softer deep blue */
+    --vt-c-black-mute: #38394a; /* muted deep blue */
+
+    --vt-c-indigo: #23bb80; /* changed indigo to a blue-green tint */
+    --vt-c-dark-violet: #2d1f7f; /* dark violet */
+    --vt-c-soft-violet: rgba(63, 43, 155, 0.1); /* soft violet */
+    --vt-c-divider-light-1: var(--vt-c-dark-violet); /* darker dividers */
+    --vt-c-divider-light-2: rgba(40, 75, 90, 0.12); /* softer dividers */
+    --vt-c-divider-dark-1: rgba(50, 85, 100, 0.65); /* darker dividers */
+    --vt-c-divider-dark-2: rgba(50, 85, 100, 0.48); /* darkest dividers */
+
+    --vt-c-text-light-1: var(--vt-c-dark-violet); /* darker text */
+    --vt-c-text-light-2: #4a4a4a; /* softer text */
+    --vt-c-text-dark-1: #ffffff; /* white text for dark mode */
+    --vt-c-text-dark-2: rgba(255, 255, 255, 0.64); /* faded white text */
+    --vt-text-highlight-color-light: var(--vt-c-medium-violet); /* medium violet */
+    --vt-hover-color-light: var(--vt-c-soft-violet);
+    --vt-text-highlight-color-dark: var(--vt-c-indigo); /* changed to blue-green tint */
+}
+
+:root {
+    --color-background: var(--vt-c-white);
+    --color-background-soft: var(--vt-c-white-soft);
+    --color-background-mute: var(--vt-c-white-mute);
+
+    --color-border: var(--vt-c-divider-light-2);
+    --color-border-hover: var(--vt-c-divider-light-1);
+    --color-highlight-hover: var(--vt-hover-color-light);
+
+    --color-heading: var(--vt-c-text-light-1);
+    --color-text: var(--vt-c-text-light-1);
+
+    --section-gap: 160px;
+}
+
+:root[data-theme='dark'] {
+    --color-background: var(--vt-c-black);
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
+
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+    --highlight-color: var(--vt-text-highlight-color-dark);
+}
+
+:root[data-theme='light'] {
+    --color-background: var(--vt-c-cream); /* Cream color applied */
+    --color-background-soft: var(--vt-c-white-soft);
+    --color-background-mute: var(--vt-c-white-mute);
+
+    --color-border: var(--vt-c-divider-light-2);
+    --color-border-hover: var(--vt-c-divider-light-1);
+
+    --color-heading: var(--vt-c-text-light-1);
+    --color-text: var(--vt-c-text-light-2);
+    --highlight-color: var(--vt-text-highlight-color-light);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    font-weight: normal;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--color-text);
+    background: var(--color-background);
+    transition: color 0.5s,
+    background-color 0.5s;
+    line-height: 1.6;
+    font-family: Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+    font-size: 15px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a,
+.green {
+    text-decoration: none;
+    color: var(--highlight-color);
+    transition: 0.4s;
+    padding: 3px;
+}
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -100,4 +209,17 @@ a, .btn-link {
 
 code {
     color: #c02d76;
+}
+
+@media (hover: hover) {
+    a:hover {
+        background-color: var(--color-highlight-hover)
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        display: flex;
+        flex-direction: column; /* Align items vertically */
+    }
 }

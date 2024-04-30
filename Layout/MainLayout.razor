@@ -1,16 +1,31 @@
 ﻿@inherits LayoutComponentBase
-<div class="page">
-    <div class="sidebar">
-        <NavMenu/>
+
+<header>
+    <div class="wrapper">
+        <SiteTitle Message="Metodologías de Diseño y Programación Avanzadas"/>
+        <nav>
+            <NavLink href="/" Match="NavLinkMatch.All">Inicio</NavLink>
+            @* <NavLink href="/about">Propósito del curso</NavLink> *@
+            @* <NavLink href="/syllabus">Temario</NavLink> *@
+            @* <NavLink href="/notes">Apuntes</NavLink> *@
+        </nav>
     </div>
+</header>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://github.com/r8vnhill/memes2" target="_blank">Github</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+<div class="main">
+    @Body
 </div>
+
+<BibliographyComponent/>
+<br>
+<footer>
+    <div class="button-container">
+        <DarkModeToggle/>
+        <GithubLink/>
+    </div>
+    <div class="copyright-container">
+        <p>
+            <a href="mailto:reachme@ravenhill.cl">© 2024 Ignacio Slater</a>
+        </p>
+    </div>
+</footer>

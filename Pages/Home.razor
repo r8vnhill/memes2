@@ -1,6 +1,57 @@
 ﻿@page "/"
+@using Ravenhill.Data
+@inject LessonService LessonService
 
-<PageTitle>Inicio</PageTitle>
+<SiteTitle>Inicio</SiteTitle>
 
 <h1>Metodologías de Diseño y Programación Avanzadas</h1>
 
+
+<h2>Clases</h2>
+<ul>
+    @foreach (var lesson in LessonService.Lessons) {
+        <li>
+            <a href="@lesson.Link" class="item">
+                <h3>@lesson.Name</h3>
+                <p>@lesson.Description</p>
+            </a>
+        </li>
+    }
+</ul>
+
+<style scoped>
+    .item {
+        margin-top: 2.5rem;
+        display: flex;
+        position: relative;
+        align-items: center;
+    }
+
+    .details {
+        flex: 1;
+        margin-left: 2rem;
+    }
+
+    .icon-container {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--color-text);
+        border: 1px solid var(--color-border);
+        background: var(--color-background);
+    }
+
+    i {
+        display: flex;
+        place-items: center;
+        place-content: center;
+        width: 32px;
+        height: 32px;
+        color: var(--color-text);
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--color-heading);
+    }
+</style>

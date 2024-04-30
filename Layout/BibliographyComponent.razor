@@ -1,0 +1,96 @@
+@page "/bibliography"
+@using Ravenhill.Data.Bib
+
+<h2>Bibliografías</h2>
+
+<div class="bibliography-view">
+    <section class="bibliography">
+        <ul>
+            @foreach (var book in _books.OrderByDescending(b => b.Year)) {
+                <li>
+                    <a href="@book.Url"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Ver libro en Goodreads">
+                        @string.Join(", ", book.Authors).
+                        <em>@book.Title</em>, @book.Edition.
+                        @book.Place: @book.Publisher.
+                        @book.Year.
+                        ISBN: @book.Isbn.
+                    </a>
+                </li>
+            }
+        </ul>
+    </section>
+</div>
+
+@code {
+
+    private List<BookResource> _books = [
+        new BookResource(
+            "Effective Java",
+            "https://www.goodreads.com/book/show/34927404-effective-java",
+            ["Joshua Bloch"],
+            "Third Edition",
+            "Boston",
+            "Addison-Wesley",
+            2018,
+            "978-0-13-468599-1"
+        ),
+        new BookResource(
+            "Functional programming in Scala",
+            "https://www.goodreads.com/book/show/60509157-functional-programming-in-scala-second-edition",
+            ["Paul Chiusano", "Runar Bjarnason", "Michael Pilquist"],
+            "Second edition",
+            "Shelter Island, NY",
+            "Manning Publications",
+            2023,
+            "978-1-61729-958-2"
+        ),
+        new BookResource(
+            "Kotlin in Action",
+            "https://www.goodreads.com/book/show/29242249-kotlin-in-action",
+            ["Dmitry Jeremov", "Svetlana Isakova"],
+            "First edition",
+            "Shelter Island, NY",
+            "Manning Publications",
+            2017,
+            "978-1-61729-329-0"
+        ),
+    ];
+}
+
+<style>
+.bibliography {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-top: 1px solid #ccc;
+  background-color: var(--color-background-soft); /* Light background for the section */
+}
+
+.bibliography h2 {
+  margin-bottom: 1rem;
+  color: var(--color-heading);
+}
+
+.bibliography ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.bibliography li {
+  margin-bottom: 0.5rem;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.bibliography a {
+  color: var(--color-text);
+  text-decoration: none; /* Removes underline */
+}
+
+.bibliography a:hover {
+  text-decoration: underline; /* Underline on hover for better visibility */
+  color: var(--color-heading);
+}
+</style>
