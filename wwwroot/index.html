@@ -10,9 +10,16 @@
     <link href="css/app.css" rel="stylesheet"/>
     <link href="favicon.png" rel="icon" type="image/png"/>
     <link href="ravenhill-blazor.styles.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
+<script>
+    (function() {
+        const theme = localStorage.getItem('theme') || 'dark'; // Default to dark
+        document.documentElement.setAttribute('data-theme', theme);
+    })();
+</script>
 <div id="app">
     <svg class="loading-progress">
         <circle cx="50%" cy="50%" r="40%"/>

@@ -1,23 +1,11 @@
 ﻿@page "/"
-@using Ravenhill.Data
-@inject LessonService LessonService
+@using ravenhill_blazor.Layout.Lessons
 
-<SiteTitle>Inicio</SiteTitle>
-
-<h1>Metodologías de Diseño y Programación Avanzadas</h1>
+<SiteTitle>Metodologías de Diseño y Programación Avanzadas</SiteTitle>
 
 
 <h2>Clases</h2>
-<ul>
-    @foreach (var lesson in LessonService.Lessons) {
-        <li>
-            <a href="@lesson.Link" class="item">
-                <h3>@lesson.Name</h3>
-                <p>@lesson.Description</p>
-            </a>
-        </li>
-    }
-</ul>
+<LessonList/>
 
 <style scoped>
     .item {

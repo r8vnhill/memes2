@@ -1,0 +1,14 @@
+@inject NavigationManager NavigationManager
+
+<button @onclick="GoToGitHub" title="Visit GitHub repository">
+    <i>Github</i> <!-- FontAwesome icon for GitHub -->
+</button>
+
+@code {
+    private const string GithubRepoUrl = "https://github.com/r8vnhill/ravenhill";
+
+    private void GoToGitHub() {
+        NavigationManager.NavigateTo(GithubRepoUrl, true);
+    }
+
+}

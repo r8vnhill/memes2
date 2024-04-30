@@ -1,0 +1,17 @@
+@using Ravenhill.Data
+@inject ThemeService ThemeService
+
+<button @onclick="ToggleTheme"
+        aria-label="@($"{(ThemeService.CurrentTheme == "dark" ? "Activate light mode" : "Activate dark mode")}")"
+        title="@($"{(ThemeService.CurrentTheme == "dark" ? "Switch to light mode" : "Switch to dark mode")}")">
+    @(ThemeService.CurrentTheme == "dark" ? "☀️" : "🌙")
+</button>
+
+
+@code {
+
+    private async Task ToggleTheme() {
+        await ThemeService.ToggleThemeAsync();
+    }
+
+}
