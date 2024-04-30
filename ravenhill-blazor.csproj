@@ -12,9 +12,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Layout\AoutLayout.razor.css">
-        <DependentUpon>AoutLayout.razor</DependentUpon>
-      </None>
+        <None Update="Layout\AoutLayout.razor.css">
+            <DependentUpon>AoutLayout.razor</DependentUpon>
+        </None>
     </ItemGroup>
 
 </Project>

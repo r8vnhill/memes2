@@ -1,0 +1,148 @@
+html {
+    font-size: 100%; /* 16px by default */
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s, max-height 0.5s ease-in-out;
+}
+
+.fade-enter, .fade-leave-to /* Starting and ending state for entering/leaving */
+{
+    opacity: 0;
+    max-height: 0;
+}
+
+.syllabus {
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif; /* Clean and modern font with wide support */
+    font-size: 16px; /* Base font size */
+    line-height: 1.6; /* Optimal line height for readability */
+}
+
+.syllabus > ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding-left: 0;
+    gap: 20px;
+    justify-content: center; /* Center items horizontally */
+}
+
+.syllabus > ol > li {
+    counter-increment: unit-counter; /* Increment the counter for each main list item */
+    break-inside: avoid-column; /* Prevent list items from breaking across columns */
+    padding: 10px;
+    margin: 5px;
+    width: 300px; /* Fixed width for each 'Unidad' */
+    text-align: center; /* Center text within each 'Unidad' */
+    flex: 0 0 auto; /* Do not grow, do not shrink, and ignore the basis */
+}
+
+.syllabus > ol > li::before {
+    content: "Unidad " counter(unit-counter); /* Display "Unidad" followed by the current counter value */
+    font-weight: bold; /* Make the label bold */
+    margin-right: 10px; /* Space between the label and list item text */
+}
+
+.syllabus > ol > li > section {
+    padding: 10px;
+    border-left: 4px solid var(--highlight-color); /* Left border for each section */
+    margin-bottom: 10px;
+}
+
+.syllabus > ol > li > ol {
+    counter-reset: sub-item-counter; /* Reset sub-item counter for each new main item */
+    list-style-type: none; /* Remove default list style for sub-items */
+    padding-left: 20px; /* Indentation for sub-lists to distinguish hierarchy */
+}
+
+.syllabus > ol > li > ol > li {
+    counter-increment: sub-item-counter; /* Increment the counter for each sub-item */
+    font-size: 15px; /* Slightly smaller than the base size for sub-items */
+}
+
+.syllabus > ol > li > ol > li::before {
+    content: counter(unit-counter) "." counter(sub-item-counter) " "; /* Display "1.1", "1.2", etc. */
+    margin-right: 5px; /* Space between the label and sub-item text */
+}
+
+.syllabus h3 {
+    font-size: 20px; /* Slightly larger for sub-headings to stand out */
+    margin-top: 1rem; /* Space above each new section */
+    margin-bottom: 0.5rem; /* Space below sub-headings */
+    cursor: pointer;
+    user-select: none;
+}
+
+.syllabus h3:hover {
+    color: #0056b3; /* Highlight on hover */
+}
+
+.syllabus h3:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.5); /* Accessibility focus ring */
+}
+
+.syllabus h3, .syllabus li {
+    margin: 5px 0; /* Add some vertical spacing for readability */
+}
+
+.syllabus h2 {
+    font-size: 24px; /* Larger size for main heading */
+    margin-bottom: 1rem; /* Add space below the heading */
+}
+
+@media (max-width: 400px) {
+    html {
+        font-size: 85%; /* Further reduce for very small devices */
+    }
+
+    .syllabus > ol {
+        column-count: 1; /* Single column for small screens */
+        column-gap: 30px;
+        padding-left: 20px; /* Indentation for the main list */
+    }
+}
+
+@media (min-width: 600px) {
+    /* Tablets and larger phones */
+    html {
+        font-size: 90%; /* Reduce base font size on smaller screens */
+    }
+
+    .syllabus > ol {
+        column-count: 2; /* Two columns for medium screens */
+        column-gap: 30px;
+        padding-left: 20px; /* Indentation for the main list */
+    }
+}
+
+@media (min-width: 900px) {
+    /* Small desktops and large tablets */
+    .syllabus > ol {
+        column-count: 3; /* Three columns for larger screens */
+        column-gap: 40px;
+        padding-left: 20px; /* Indentation for the main list */
+    }
+}
+
+@media (min-width: 1200px) {
+    /* Large desktops */
+    .syllabus > ol {
+        column-count: 4; /* Four columns for very large screens */
+        column-gap: 50px;
+        padding-left: 20px; /* Indentation for the main list */
+    }
+}
+
+@media print {
+    .syllabus {
+        column-count: 1;
+        color: black;
+        background: white;
+    }
+
+    .syllabus > ol > li > section {
+        background-color: transparent;
+        border: none;
+    }
+}
