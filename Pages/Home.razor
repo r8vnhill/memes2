@@ -1,45 +1,40 @@
 ﻿@page "/"
 @using ravenhill_blazor.Layout.Lessons
+@inherits LayoutComponentBase
 
 <SiteTitle>Metodologías de Diseño y Programación Avanzadas</SiteTitle>
+<div class="app-container">
+    <main>
+        <h2>Clases</h2>
+        <article class="content px-4">
+            <LessonList />
+        </article>
+    </main>
+</div>
 
-
-<h2>Clases</h2>
-<LessonList/>
 
 <style scoped>
-    .item {
-        margin-top: 2.5rem;
-        display: flex;
-        position: relative;
-        align-items: center;
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif; /* Consistent, modern font */
+        line-height: 1.6; /* Optimal line height for readability */
+        color: var(--color-text, #333); /* Default text color */
     }
 
-    .details {
-        flex: 1;
-        margin-left: 2rem;
+    main {
+        padding: 30px;
+        max-width: 1200px; /* Limiting width for better readability on larger screens */
+        margin: auto; /* Centering main content horizontally */
+        background: var(--color-background, #fff); /* Light background for the main area */
+        border-radius: 8px; /* Slightly rounded corners for a softer look */
     }
 
-    .icon-container {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: var(--color-text);
-        border: 1px solid var(--color-border);
-        background: var(--color-background);
+    h2 {
+        color: var(--highlight-color, #0056b3);
+        font-size: 2rem; /* Larger font size for section titles */
+        text-align: center; /* Center alignment for titles */
+        font-weight: bold; /* Making header texts bold */
+        margin-top: 20px; /* Space above the header */
+        margin-bottom: 20px; /* Space below the title */
     }
 
-    i {
-        display: flex;
-        place-items: center;
-        place-content: center;
-        width: 32px;
-        height: 32px;
-        color: var(--color-text);
-    }
-
-    h3 {
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: var(--color-heading);
-    }
 </style>

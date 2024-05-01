@@ -1,0 +1,159 @@
+.item {
+    margin-top: 2.5rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.details {
+    flex: 1;
+    margin-left: 2rem;
+}
+
+.icon-container {
+
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    background: var(--color-background);
+}
+
+i {
+    display: flex;
+    place-items: center;
+    place-content: center;
+    width: 32px;
+    height: 32px;
+
+    color: var(--color-text);
+}
+
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-heading);
+}
+
+@media (min-width: 1024px) {
+    .item {
+        margin-top: 0;
+        padding: 0.4rem 0 1rem calc(var(--section-gap) / 2);
+    }
+
+    i {
+        top: calc(50% - 25px);
+        left: -26px;
+        position: absolute;
+        border: 1px solid var(--color-border);
+        background: var(--color-background);
+        border-radius: 8px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .item:before {
+        content: ' ';
+        border-left: 1px solid var(--color-border);
+        position: absolute;
+        left: 0;
+        bottom: calc(50% + 25px);
+        height: calc(50% - 25px);
+    }
+
+    .item:after {
+        content: ' ';
+        border-left: 1px solid var(--color-border);
+        position: absolute;
+        left: 0;
+        top: calc(50% + 25px);
+        height: calc(50% - 25px);
+    }
+
+    .item:first-of-type:before {
+        display: none;
+    }
+
+    .item:last-of-type:after {
+        display: none;
+    }
+}
+
+.item:hover {
+    background-color: var(--color-background-hover);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.item, .icon-container {
+    transition: all 0.3s ease;
+}
+
+.item:hover .icon-container {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .details {
+        margin-left: 1rem;
+    }
+
+    .item {
+        flex-direction: column;
+        align-items: start;
+        padding: 1rem 0;
+    }
+
+    .icon-container {
+        margin-bottom: 1rem;
+    }
+}
+
+h3 {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+}
+
+h3:hover {
+    text-decoration: underline;
+}
+
+h3 {
+    font-size: 1.6rem; /* slightly larger for better readability */
+}
+
+@media (min-width: 1024px) {
+    h3 {
+        font-size: 1.8rem; /* adjust for larger screens */
+    }
+}
+
+i {
+    border-radius: 50%; /* make icons circular */
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.parent-container {
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    height: 100vh;            /* Optional: full height of the viewport */
+}
+
+.item {
+    margin-top: 2.5rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center; /* Ensure content within .item is also centered */
+    width: 100%;             /* Optional: Take full width of the container */
+}
+
+@media (min-width: 1024px) {
+    .item {
+        margin-top: 0;
+        padding: 0.4rem 0 1rem calc(var(--section-gap) / 2);
+    }
+}
