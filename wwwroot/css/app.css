@@ -1,3 +1,5 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
 :root {
     --vt-c-white: #e7f1f1; /* a softer white */
     --vt-c-white-soft: #c2d6d6; /* soft blue */
@@ -23,6 +25,7 @@
     --vt-text-highlight-color-light: var(--vt-c-medium-violet); /* medium violet */
     --vt-hover-color-light: var(--vt-c-soft-violet);
     --vt-text-highlight-color-dark: var(--vt-c-indigo); /* changed to blue-green tint */
+    
 }
 
 :root {
@@ -38,6 +41,12 @@
     --color-text: var(--vt-c-text-light-1);
 
     --section-gap: 160px;
+
+    --button-background: var(--color-background-soft);
+    --button-text: var(--color-text);
+    --button-border: var(--color-border);
+    --button-hover-background: var(--color-highlight-hover);
+    --button-hover-text: var(--color-text);
 }
 
 :root[data-theme='dark'] {
@@ -51,6 +60,12 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
     --highlight-color: var(--vt-text-highlight-color-dark);
+
+    --button-background: var(--vt-c-black-soft);
+    --button-text: var(--vt-c-text-dark-1);
+    --button-border: var(--vt-c-divider-dark-2);
+    --button-hover-background: var(--color-border-hover);
+    --button-hover-text: var(--vt-c-text-dark-1);
 }
 
 :root[data-theme='light'] {
@@ -64,6 +79,12 @@
     --color-heading: var(--vt-c-text-light-1);
     --color-text: var(--vt-c-text-light-2);
     --highlight-color: var(--vt-text-highlight-color-light);
+
+    --button-background: var(--vt-c-white-soft);
+    --button-text: var(--vt-c-text-light-1);
+    --button-border: var(--vt-c-divider-light-2);
+    --button-hover-background: var(--vt-hover-color-light);
+    --button-hover-text: var(--vt-c-text-light-1);
 }
 
 *,
@@ -208,4 +229,22 @@ code {
         display: flex;
         flex-direction: column; /* Align items vertically */
     }
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--button-text);
+    background-color: var(--button-background);
+    border: 1px solid var(--button-border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-hover-background);
+    color: var(--button-hover-text);
+    border-color: var(--color-border-hover);
 }

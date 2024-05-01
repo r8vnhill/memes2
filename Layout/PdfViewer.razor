@@ -1,1 +1,43 @@
-<a href="https://github.com/r8vnhill/memes2/blob/master/Pdfs/notes.pdf" target="_blank">Apuntes</a>
+<a href="https://github.com/r8vnhill/memes2/blob/master/Pdfs/notes.pdf" target="_blank" class="apuntes-button">Apuntes</a>
+
+<style>
+    /* Basic link styling to reset */
+    a {
+        text-decoration: none; /* Removes underline */
+        color: inherit; /* Inherits color from parent */
+    }
+
+    /* Button-like styling specifically for the 'Apuntes' link */
+    .apuntes-button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px 0;
+        background-color: var(--highlight-color); /* Custom color variable */
+        color: white;
+        border-radius: 5px;
+        transition: background-color 0.3s, box-shadow 0.3s;
+        text-align: center;
+        font-weight: bold;
+        border: none;
+    }
+
+    /* Hover effect */
+    .apuntes-button:hover {
+        background-color: #0056b3; /* Darker shade of blue on hover */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Soft shadow for 3D effect */
+        text-decoration: none; /* Ensures no underline appears */
+    }
+
+    /* Focus effect for accessibility */
+    .apuntes-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(25, 100, 255, 0.5); /* Blue glow for accessibility */
+    }
+
+    /* Active state for click effect */
+    .apuntes-button:active {
+        background-color: #004094; /* Even darker shade when clicked */
+        box-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Deeper shadow to simulate pressing */
+    }
+
+</style>
