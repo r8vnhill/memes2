@@ -11,8 +11,6 @@
 }
 
 .icon-container {
-
-
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--color-text);
@@ -28,6 +26,8 @@ i {
     height: 32px;
 
     color: var(--color-text);
+    transform: translate(50%, 0%); /* Adjust so the center of the icon is exactly at the top/left percentages */
+
 }
 
 
@@ -82,17 +82,18 @@ h3 {
 }
 
 .item:hover {
-    background-color: var(--color-background-hover);
+    background-color: var(--color-highlight-hover);
     transition: background-color 0.3s ease-in-out;
 }
 
 .item, .icon-container {
     transition: all 0.3s ease;
+    overflow: visible; /* Ensure that children can overflow this container's bounds without being cut off */
 }
 
-.item:hover .icon-container {
-    transform: scale(1.1);
-}
+/*.item:hover .icon-container {*/
+/*    transform: scale(1.1);*/
+/*}*/
 
 @media (max-width: 768px) {
     .details {
@@ -157,3 +158,5 @@ i {
         padding: 0.4rem 0 1rem calc(var(--section-gap) / 2);
     }
 }
+
+
