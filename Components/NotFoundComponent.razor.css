@@ -1,0 +1,58 @@
+.not-found-container {
+    position: relative;
+    color: white; /* Adjust the text color based on your image's color scheme */
+    text-align: center; /* Center everything inside the container */
+    /* Provide some space at the top if needed */
+    margin: 20px auto 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around the image */
+}
+
+.not-found-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth scaling effect on hover */
+}
+
+.not-found-container img:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.text-below-image {
+    font-size: 4vw; /* Responsive font size */
+    font-weight: bold;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4vw; /* Responsive font size */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Consistency in text styling */
+}
+
+.return-home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 30px;
+    background-color: var(--highlight-color);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none; /* Assuming it's styled as an <a> tag */
+    transition: background-color 0.3s ease;
+}
+
+.return-home-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.error-section {
+    background: linear-gradient(to right, #434343 0%, black 100%); /* subtle gradient background */
+    color: white;
+    text-align: center;
+    padding: 40px 20px; /* More padding for better spacing */
+}
+

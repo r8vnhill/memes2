@@ -1,12 +1,13 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
+﻿@using keen_manual.Components
+<Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
         <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
     </Found>
     <NotFound>
-        <SiteTitle>Not found</SiteTitle>
+        <PageTitle>Not found</PageTitle>
         <LayoutView Layout="@typeof(MainLayout)">
-            <p role="alert">Sorry, there's nothing at this address.</p>
+            <NotFoundComponent/>w
         </LayoutView>
     </NotFound>
 </Router>

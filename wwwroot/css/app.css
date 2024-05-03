@@ -2,7 +2,7 @@
 
 :root {
     --vt-c-white: #e7f1f1; /* a softer white */
-    --vt-c-white-soft: #c2d6d6; /* soft blue */
+    --vt-c-white-soft: #dae3e3; /* soft blue */
     --vt-c-white-mute: #9fb7b7; /* muted blue */
     --vt-c-cream: #f5f5dc; /* Cream color defined */
     --vt-c-medium-violet: #8a2be2; /* medium violet */
@@ -25,7 +25,7 @@
     --vt-text-highlight-color-light: var(--vt-c-medium-violet); /* medium violet */
     --vt-hover-color-light: var(--vt-c-soft-violet);
     --vt-text-highlight-color-dark: var(--vt-c-indigo); /* changed to blue-green tint */
-    
+
 }
 
 :root {

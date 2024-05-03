@@ -1,0 +1,9 @@
+
+.reference-website a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.reference-website a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,43 @@
+<!--
+Component: CourseDescription
+
+Description:
+This component is designed to display detailed information about the course "Metodologías de Diseño y Programación Avanzadas." It provides an overview of the course content, including the skills taught and the course's relevance. The course is described as an advanced programming and design methodologies course offered by the Universidad de Chile, aiming at deepening the students' programming and design skills to tackle complex software problems.
+
+Structure:
+- <section class="course-description">: The main container for the course description, styled specifically to highlight important course information.
+  - <h1 class="title">: Displays the title of the course. The use of `<h1>` indicates its importance on the page both for SEO and accessibility.
+  - <p class="description">: Contains the detailed description of the course, outlining what the course will cover, the methodologies taught, and its target audience.
+
+Purpose:
+- The primary goal of this component is to inform prospective students about the advanced nature of the course, the skills they will gain, and why it might be beneficial for their careers. It serves as a promotional yet informational piece on a dedicated course page accessed via the "/memes2" route.
+
+Usage:
+- This component is intended to be used on the course detail page, which provides visitors with an in-depth look at specific advanced courses offered. It's part of an educational site, particularly for those interested in advancing their skills in software design and programming.
+
+Styling:
+- The component uses a minimalistic style defined by `.course-description` to keep the focus on the content. Additional CSS classes `.title` and `.description` are used to enhance the readability and visual hierarchy of the text.
+
+Accessibility:
+- Heading and paragraph tags are used to ensure the content is structured in a way that is easily navigable by screen readers. Proper semantic HTML is employed to enhance accessibility and SEO.
+
+Remarks:
+- Ensure that the route "/memes2" is correctly configured in the application's routing settings to display this component.
+- Consider linking this description to more detailed resources or registration pages for the course for better user engagement and conversion.
+-->
+
+@page "/memes2"
+@using keen_manual.Components.Bib
+
+<section class="course-description">
+    <h1 class="title">METODOLOGÍAS DE DISEÑO Y PROGRAMACIÓN AVANZADAS</h1>
+    <p class="description">
+        El curso "Metodologías de diseño y programación avanzadas" intensifica las habilidades en diseño y programación
+        para enfrentar problemas de software complejos. Enseña programación orientada a objetos avanzada, testing
+        exhaustivo, y paradigmas funcionales y genéricos, junto con técnicas de metaprogramación y manejo de colecciones.
+        Es una continuación del curso básico de la Universidad de Chile, adecuado para quienes buscan especializarse en
+        técnicas avanzadas de programación y diseño de software.
+    </p>
+</section>
+
+<BibliographyMemes2/>

@@ -1,0 +1,77 @@
+﻿<!--
+Component: NavMenu
+
+Description:
+This component creates a responsive navigation bar that serves as the main navigational interface for the application.
+It features a collapsible menu to optimize the user experience on devices with smaller screens.
+
+Structure:
+- <div class="top-row ps-3 navbar navbar-dark">: This is the container for the navigation bar styled as a "dark" theme
+    navbar with padding.
+  - <a class="navbar-brand" href="">: Represents the title section of the navbar, linked to the  root route.
+  - <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">: A button that toggles the 
+    visibility of the navigation menu. Includes an icon indicating its purpose.
+
+- <div class="@NavMenuCssClass nav-scrollable">: A dynamically classed div that contains the navigation links. It 
+    toggles visibility based on the user's interaction with the 'navbar-toggler' button.
+  - <nav class="flex-column">: Defines the navigation area with a vertical layout.
+    - <NavLink>: Each navigation link that routes to different parts of the application, with accompanying icons for 
+        visual enhancement.
+
+Code Explanation:
+- code { ... }: Contains the logic for managing the state of the navigation menu's visibility.
+  - _collapseNavMenu: A boolean variable that tracks whether the navigation menu is collapsed.
+  - NavMenuCssClass: Computed property that returns a CSS class based on the _collapseNavMenu state to control the 
+    visibility of the navigation menu.
+  - ToggleNavMenu(): A method that toggles the _collapseNavMenu state, effectively showing or hiding the navigation menu
+    when the user interacts with the navbar-toggler.
+
+Usage:
+This navigation bar is used across all pages of the application that require a consistent navigation interface. It 
+improves user navigation on both desktop and mobile devices by adjusting layout dynamically.
+
+Accessibility:
+- The navigation menu button is equipped with a descriptive title and utilizes a recognizable icon to ensure it is 
+    understandable by users across different devices and assistive technologies.
+- ARIA roles and attributes are used where necessary to enhance accessibility, particularly for screen reader users.
+
+Remarks:
+- Ensure that the NavLink components are correctly linked to existing routes in the application.
+- Icons used within NavLink should be styled and made accessible with proper ARIA labels or hidden attributes as 
+    necessary.
+
+-->
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Ravenhill</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="keen">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Keen
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="memes2">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Metodologías 2
+            </NavLink>
+        </div>
+    </nav>
+</div>
+
+@code {
+    private bool _collapseNavMenu = true;
+
+    private string? NavMenuCssClass => _collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu() {
+        _collapseNavMenu = !_collapseNavMenu;
+    }
+
+}

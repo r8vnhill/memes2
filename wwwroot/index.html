@@ -4,25 +4,15 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>ravenhill-blazor</title>
+    <title>keen-manual</title>
     <base href="/"/>
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/app.css" rel="stylesheet"/>
     <link href="favicon.png" rel="icon" type="image/png"/>
-    <link href="ravenhill-blazor.styles.css" rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link href="keen-manual.styles.css" rel="stylesheet"/>
 </head>
 
 <body>
-<script>
-    (function () {
-        const theme = localStorage.getItem('theme') || 'dark'; // Default to dark
-        document.documentElement.setAttribute('data-theme', theme);
-    })();
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.worker.min.js"></script>
-
 <div id="app">
     <svg class="loading-progress">
         <circle cx="50%" cy="50%" r="40%"/>
@@ -37,8 +27,6 @@
     <a class="dismiss">🗙</a>
 </div>
 <script src="_framework/blazor.webassembly.js"></script>
-<script src="js/site.js"></script>
-
 </body>
 
 </html>

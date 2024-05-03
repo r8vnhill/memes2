@@ -1,0 +1,32 @@
+.course-description {
+    background-color: var(--color-background-soft);
+    border-left: 5px solid var(--highlight-color);
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%; /* Responsive width */
+    max-width: 1000px; /* Limit maximum width */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, clean font */
+    color: var(--highlight-color); /* Highlight color for a professional look */
+    margin-bottom: 10px;
+}
+
+.description {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5rem; /* Larger font size for readability */
+    color: var(--color-text); /* Text color for readability */
+    line-height: 1.6; /* Improved line spacing for readability */
+}
+
+@media (max-width: 768px) {
+    .course-description {
+        padding: 15px;
+        margin: 10px auto; /* Ensure the box remains centered */
+        width: 95%; /* Slightly wider on smaller screens */
+    }
+}
+

@@ -1,38 +1,56 @@
-﻿@using ravenhill_blazor.Layout.Bib
+﻿@* 
+  Component: MainLayout
+  Description: This component serves as the main layout for the application. It dynamically adjusts the navigation menu 
+  based on the current route and manages the theme of the application using ThemeService.
+
+  Usage:
+  - The layout dynamically renders `NavMenuMemes` when the user navigates to "/memes2", otherwise, it renders the default `NavMenu`.
+  - It contains a top row with a dark mode toggle and an external link to ASP.NET Core documentation.
+  - The main content of the page is displayed within an `<article>` tag which dynamically updates based on the routed page.
+
+  Dependencies:
+  - `NavigationManager`: Injected to manage and interact with the navigation state.
+  - `ThemeService`: Injected to handle the application's theme settings including initialization of themes during component initialization.
+
+  Code Blocks:
+  - `OnInitializedAsync`: An override of the component initialization method to initialize the theme settings asynchronously when the component is first rendered.
+
+  Remarks:
+  - The component assumes the existence of `NavMenuMemes` and `NavMenu` components for navigation purposes.
+  - `DarkModeToggle` is used here to provide a UI control for switching themes (commented out is `GithubLink`, which can be enabled if needed).
+  - External resources like documentation are linked directly in the layout for easy accessibility.
+
+*@
+@using keen_manual.Components
+@using keen_manual.Layout.Memes2
 @using Ravenhill.Data
 @inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
 @inject ThemeService ThemeService
 
-<div class="app-container">
-    <header>
-        <SiteTitle Message="Metodologías de Diseño y Programación Avanzadas"/>
-    </header>
-
-    <div class="content-area">
-        <Sidebar>
-            <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/about">Propósito del curso</a></li>
-                <li><a href="/syllabus">Temario</a></li>
-                <li><a href="/notes">Apuntes</a></li>
-            </ul>
-        </Sidebar>
-
-        <main class="main">
-            @Body
-        </main>
+<div class="page">
+    <div class="sidebar">
+        @if (NavigationManager.Uri.Contains("/memes2")) {
+            <NavMenuMemes/>
+        }
+        else {
+            <NavMenu/>
+        }
     </div>
 
-    <Bibliography/>
-    <footer>
-        <div class="button-container">
-            <DarkModeToggle/>
-            <GithubLink/>
+    <main>
+        <div class="top-row px-4">
+            <div class="button-container">
+                <DarkModeToggle/>
+                @* <GithubLink/> *@
+            </div>
+            <a href="https://www.github.com/r8vnhill" target="_blank">Github</a>
         </div>
-        <div class="copyright-container">
-            <a href="mailto:reachme@ravenhill.cl">© 2024 Ignacio Slater</a>
-        </div>
-    </footer>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
 </div>
 
 @code {
@@ -42,68 +60,3 @@
     }
 
 }
-
-<style>
-
-    .sidebar {
-        flex: 0 0 250px; /* Fixed width */
-        background: var(--color-background-soft);
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding: 1rem;
-        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        display: flex;
-        flex-direction: column; /* Organize content vertically */
-    }
-
-    .sidebar-content {
-        overflow-y: auto; /* Only this part scrolls */
-        flex-grow: 1;
-    }
-
-    .sidebar ul {
-        list-style: none;
-        margin-top: 1rem;
-    }
-
-    .sidebar li a {
-        color: var(--color-text);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        transition: background-color 0.3s, padding-left 0.3s;
-    }
-
-    .sidebar li a:hover {
-        background-color: var(--highlight-color);
-        color: #ffffff;
-        padding-left: 20px; /* Indent text on hover */
-    }
-
-
-    .sidebar-header {
-        padding: 0.5rem 0;
-        font-size: 1.2rem;
-        font-weight: bold;
-        border-bottom: 1px solid var(--color-border);
-    }
-
-
-    .sidebar li i {
-        margin-right: 10px; /* Space between icon and text */
-    }
-
-    .content-area {
-        display: flex;
-        flex: 1;
-        margin-left: 250px; /* Ensure content area starts after the sidebar */
-    }
-
-    /* Example usage of icons */
-    .sidebar li a .fas {
-        min-width: 20px; /* Ensure icons align neatly */
-    }
-</style>

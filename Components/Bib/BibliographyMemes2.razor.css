@@ -1,0 +1,32 @@
+.bibliography {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+    background-color: var(--color-background-soft); /* Light background for the section */
+}
+
+.bibliography h2 {
+    margin-bottom: 1rem;
+    color: var(--color-heading);
+}
+
+.bibliography ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.bibliography li {
+    margin-bottom: 0.5rem;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.bibliography a {
+    color: var(--color-text);
+    text-decoration: none; /* Removes underline */
+}
+
+.bibliography a:hover {
+    text-decoration: underline; /* Underline on hover for better visibility */
+    color: var(--color-heading);
+}

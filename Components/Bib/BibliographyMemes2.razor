@@ -1,0 +1,115 @@
+@page "/memes2/bibliography"
+@using Ravenhill.Data.Bib
+
+<div class="bibliography-view">
+    <section class="bibliography">
+        <h2>Bibliografías</h2>
+        <ul>
+            @foreach (var book in _books.OrderByDescending(b => b.Year)) {
+                <li>
+                    <ReferenceBook Url="@book.Url"
+                                   Authors="@book.Authors"
+                                   Title="@book.Title"
+                                   Edition="@book.Edition"
+                                   Place="@book.Place"
+                                   Publisher="@book.Publisher"
+                                   Year="@book.Year"
+                                   Isbn="@book.Isbn"/>
+                </li>
+            }
+            @foreach (var paper in _papers.OrderByDescending(p => p.Year)) {
+                <li>
+                    <ReferencePaper Url="@paper.Url"
+                                    Authors="@paper.Authors"
+                                    Title="@paper.Title"
+                                    Place="@paper.Place"
+                                    Publisher="@paper.Publisher"
+                                    Year="@paper.Year"
+                                    Doi="@paper.Doi"/>
+                </li>
+            }
+            @foreach (var website in _websites) {
+                <li>
+                    <ReferenceWebsite Url="@website.Url" Title="@website.Title"/>
+                </li>
+            }
+        </ul>
+    </section>
+    <p></p>
+</div>
+
+@code {
+
+    private List<BookResource> _books = [
+        new BookResource(
+            "Effective Java",
+            "https://www.goodreads.com/book/show/34927404-effective-java",
+            ["Joshua Bloch"],
+            "Third Edition",
+            "Boston",
+            "Addison-Wesley",
+            2018,
+            "978-0-13-468599-1"
+        ),
+        new BookResource(
+            "Functional programming in Scala",
+            "https://www.goodreads.com/book/show/60509157-functional-programming-in-scala-second-edition",
+            ["Paul Chiusano", "Runar Bjarnason", "Michael Pilquist"],
+            "Second edition",
+            "Shelter Island, NY",
+            "Manning Publications",
+            2023,
+            "978-1-61729-958-2"
+        ),
+        new BookResource(
+            "Kotlin in Action",
+            "https://www.goodreads.com/book/show/29242249-kotlin-in-action",
+            ["Dmitry Jeremov", "Svetlana Isakova"],
+            "First edition",
+            "Shelter Island, NY",
+            "Manning Publications",
+            2017,
+            "978-1-61729-329-0"
+        ),
+        new BookResource(
+            "Kotlin programming: the Big Nerd Ranch guide",
+            "https://www.goodreads.com/book/show/59537002-kotlin-programming",
+            ["Josh Skeen", "David Greenhalgh"],
+            "Second edition",
+            "Atlanta, GA",
+            "Big Nerd Ranch",
+            2021,
+            "978-0136891055"
+        ),
+        new BookResource(
+            "Test-driven development: by example",
+            "https://www.goodreads.com/en/book/show/387190",
+            ["Kent Beck"],
+            "First edition",
+            "Boston",
+            "Addison-Wesley",
+            2003,
+            "978-0-321-14653-3"
+        )
+    ];
+
+    private List<WebsiteResource> _websites = [
+        new WebsiteResource("Gradle Build Tool", "https://gradle.org/"),
+        new WebsiteResource("Hello from detekt | detekt", "https://detekt.dev/"),
+        new WebsiteResource("Kotest", "https://kotest.io/")
+    ];
+    
+    private List<PaperResource> _papers = [
+        new PaperResource(
+            "Traits: Composable Units of Behaviour",
+            ["Nathanael Schärli", "Stéphane Ducasse", "Oscar Nierstrasz", "Andrew P. Black"],
+            "https://doi.org/10.1007/978-3-540-45070-2_12",
+            "Berlin, Heidelberg",
+            "Springer",
+            2003,
+            "10.1007/978-3-540-45070-2_12",
+            "ECOOP 2003 – Object-Oriented Programming"
+        )
+    ];
+
+}

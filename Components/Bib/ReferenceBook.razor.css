@@ -1,0 +1,8 @@
+.reference-book a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.reference-book a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,67 @@
+@using Ravenhill.Data
+<div class="lesson-list">
+    @foreach (var lesson in LessonsWithIndex) {
+        <LessonItem Url="@lesson.Lesson.Link" Title="@lesson.Lesson.Name" Counter="@lesson.Index" Description="@lesson.Lesson.Description"/>
+    }
+</div>
+
+@code {
+
+    private readonly List<Lesson> _lessons = [
+        new Lesson(
+            "Introducción a Kotlin",
+            "Sintáxis básica de Kotlin, estructuras de control, funciones y null safety.",
+            "https://uchile-my.sharepoint.com/:p:/g/personal/ignacio_slater_uchile_cl/EfBtvn6j8hRAkLG8eJnbTrQBDhWbchBVpJEbwY41YUkWGw?e=sbtAOt"
+        ),
+        new Lesson(
+            "Build Systems y Análisis Estático",
+            "Introducción a la automatización de tareas con Gradle y Detekt.",
+            "https://uchile-my.sharepoint.com/:p:/g/personal/ignacio_slater_uchile_cl/EcH69EcLq25HhygtiV3RKFsBMuMJpVMu76AvByIFYtCGpg?e=IeheXd"
+        ),
+        new Lesson(
+            "Programación Orientada a Objetos I",
+            "Repaso de conceptos de programación orientada objetos, introduciendo clases, objetos, clases abstractas e interfaces en Kotlin.",
+            "https://uchile-my.sharepoint.com/:p:/g/personal/ignacio_slater_uchile_cl/EfXXneommYNPk6D2yQvYfg0Br_EnhI5eW5DzCeurW2eC7Q?e=JwMP2u"
+        ),
+        new Lesson(
+            "Programación Orientada a Objetos II",
+            "Propiedades, funciones de extension, funciones infijas, data classes y companion objects.",
+            "https://uchile-my.sharepoint.com/:p:/g/personal/ignacio_slater_uchile_cl/EZxTC5k0lIlFlzSEhFWOVqIBcLZ2_gVf9NyQ6Si8_DOcEA?e=dl2c3k"
+        ),
+        new Lesson(
+            "Programación Orientada a Objetos III",
+            "Enumeraciones y clases selladas.",
+            "https://uchile-my.sharepoint.com/:p:/g/personal/ignacio_slater_uchile_cl/EV0FJv_dJMdApk5cnYFeP0QBqCPYHjYskOBnFO-hYBLWDQ?e=oivW7C"
+        ),
+        new Lesson(
+            "Programación Orientada a Objetos IV",
+            "Herencia múltiple.",
+            "https://uchile-my.sharepoint.com/:p:/g/personal/ignacio_slater_uchile_cl/ESh5eG0cEjFLh11DfNH6b5sB_x3zA0a7hZwSW5Aby7LMVw?e=QKgLv1"
+        ),
+        new Lesson(
+            "Testing I",
+            "Introducción a Test-Driven Development con Kotest.",
+            "https://uchile-my.sharepoint.com/:p:/g/personal/ignacio_slater_uchile_cl/EXHCSKdA-2NOtGcc1W-6PBEBITZJ7PvsJVMnPy8gamRwzw?e=P3i2gS"
+        ),
+        new Lesson(
+            "Testing II",
+            "Testing de excepciones y data-driven testing.",
+            "https://uchile-my.sharepoint.com/:p:/g/personal/ignacio_slater_uchile_cl/EQPh31j8GwdGsbwViZqLE_EBIBSEacftvHKYKuY40hJSiw?e=PGdi7K"
+        ),
+        new Lesson(
+            "Programación Funcional I",
+            "Funciones de orden superior y expresiones lambda.",
+            "https://uchile-my.sharepoint.com/:p:/g/personal/ignacio_slater_uchile_cl/EfrX59zaVR5MhOrSPl7zVQgB2IdgBjRc3Q1qR0ERDY2o1g?e=xZy4pH"
+        ),
+        new Lesson(
+            "Programación Funcional II",
+            "Funciones puras y efectos secundarios.",
+            "https://uchile-my.sharepoint.com/:p:/g/personal/ignacio_slater_uchile_cl/EZsw8uNFKBdAlwmVfKguUq8BhQ3oUS6RELjLAjp5HGbeZA?e=A2dekU"
+        )
+    ];
+
+    private List<(Lesson Lesson, int Index)> LessonsWithIndex => _lessons
+        .Select((lesson, index) => (lesson, index + 1)) // Compute indices starting at 1
+        .ToList();
+
+}

@@ -1,40 +1,25 @@
 ﻿@page "/"
-@using ravenhill_blazor.Layout.Lessons
-@inherits LayoutComponentBase
 
-<SiteTitle>Metodologías de Diseño y Programación Avanzadas</SiteTitle>
-<div class="app-container">
-    <main>
-        <h2>Clases</h2>
-        <article class="content px-4">
-            <LessonList />
-        </article>
-    </main>
+<PageTitle xmlns="http://www.w3.org/1999/html">Inicio</PageTitle>
+
+<div class="main-container">
+    <h1 class="main-header">Ravenhill</h1>
+    <p class="welcome-text">
+        Adicto obsesivo con un sueño por enseñar lo que me motiva. Contra creencia popular, sí
+        soy un cuervo irl.
+    </p>
+    <div class="content-sections">
+        <a href="keen" class="content-tile keen">
+            <img src="keen-logo.png" alt="Keen logo" class="content-tile-logo" width="100%"/>
+            <p>Keen: by evolution, for evolution</p>
+
+        </a>
+        <a href="memes2" class="content-tile memes2">
+            <h2>Metodologías de diseño y Programación Avanzadas</h2>
+            <p>
+                El curso "Metodologías de diseño y programación avanzadas" intensifica las habilidades en diseño y programación
+                para enfrentar problemas de software complejos.
+            </p>
+        </a>
+    </div>
 </div>
-
-
-<style scoped>
-    body {
-        font-family: 'Segoe UI', Arial, sans-serif; /* Consistent, modern font */
-        line-height: 1.6; /* Optimal line height for readability */
-        color: var(--color-text, #333); /* Default text color */
-    }
-
-    main {
-        padding: 30px;
-        max-width: 1200px; /* Limiting width for better readability on larger screens */
-        margin: auto; /* Centering main content horizontally */
-        background: var(--color-background, #fff); /* Light background for the main area */
-        border-radius: 8px; /* Slightly rounded corners for a softer look */
-    }
-
-    h2 {
-        color: var(--highlight-color, #0056b3);
-        font-size: 2rem; /* Larger font size for section titles */
-        text-align: center; /* Center alignment for titles */
-        font-weight: bold; /* Making header texts bold */
-        margin-top: 20px; /* Space above the header */
-        margin-bottom: 20px; /* Space below the title */
-    }
-
-</style>

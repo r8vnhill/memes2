@@ -1,0 +1,48 @@
+<!--
+Component: NotFoundComponent
+
+Description:
+This component renders a user-friendly "Page Not Found" error page, intended to be displayed when a user navigates to a 
+non-existent route in the application. It includes a visual representation of the error (404), an explanatory message, 
+and a link to navigate back to the home page.
+
+Structure:
+- <section class="error">: The main container for the error message, which helps in applying scoped styling.
+- <div class="not-found-container">: Houses the content related to the error display.
+- <img src="dde.gif" alt="404" width="100%">: Displays a gif symbolizing the error. The gif spans the full width of
+    its container.
+- <div class="centered-text">: A container for the text and link, centrally positioned over or under the image depending 
+    on CSS.
+  - <p>404</p>: Displays the error code prominently.
+  - <p role="alert">Page not found</p>: Provides an accessible alert message describing the error.
+  - <a href="/" class="return-home-button">Go to Home</a>: Provides a button styled link for users to return to the home 
+    page easily.
+
+Styling Notes:
+- .error: Applied to the section for any specific styling targeted at error messages.
+- .not-found-container: Used to style the container of the not-found content, typically including layout and alignment.
+- .centered-text: Ensures the text and links are centered, enhancing the visual focus for users.
+- .return-home-button: Styled to look like a button, enhancing clickability and user interaction.
+
+Accessibility:
+- The 'role="alert"' attribute in the "Page not found" paragraph ensures that this message is immediately announced by 
+    screen readers, emphasizing the importance of the message.
+
+Usage:
+This error page component is used across the application wherever an invalid route is accessed by a user.
+
+-->
+<section class="error">
+    <div class="not-found-container">
+        <img src="dde.gif" alt="404" width="100%"/>
+        <div class="centered-text">
+            <p>404</p>
+            <p role="alert">Page not found</p>
+            <a href="/" class="return-home-button">Go to Home</a>
+        </div>
+    </div>
+</section>
+
+@code {
+
+}
